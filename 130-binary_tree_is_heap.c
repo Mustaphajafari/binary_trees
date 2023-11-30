@@ -10,14 +10,14 @@
  */
 int is_complete(const binary_tree_t *root, int index, int nodes)
 {
-    if (root == NULL)
-        return (1);
+if (root == NULL)
+return (1);
 
-    if (index >= nodes)
-        return (0);
+if (index >= nodes)
+return (0);
 
-    return (is_complete(root->left, 2 * index + 1, nodes) &&
-            is_complete(root->right, 2 * index + 2, nodes));
+return (is_complete(root->left, 2 * index + 1, nodes) &&
+is_complete(root->right, 2 * index + 2, nodes));
 }
 
 /**
@@ -28,19 +28,19 @@ int is_complete(const binary_tree_t *root, int index, int nodes)
  */
 int binary_tree_is_heap(const binary_tree_t *tree)
 {
-    if (tree == NULL)
-        return (0);
+if (tree == NULL)
+return (0);
 
-    if (!is_complete(tree, 0, binary_tree_size(tree)))
-        return (0);
+if (!is_complete(tree, 0, binary_tree_size(tree)))
+return (0);
 
-    if (tree->left != NULL && tree->left->n > tree->n)
-        return (0);
+if (tree->left != NULL && tree->left->n > tree->n)
+return (0);
 
-    if (tree->right != NULL && tree->right->n > tree->n)
-        return (0);
+if (tree->right != NULL && tree->right->n > tree->n)
+return (0);
 
-    return (binary_tree_is_heap(tree->left) && binary_tree_is_heap(tree->right));
+return (binary_tree_is_heap(tree->left) && binary_tree_is_heap(tree->right));
 }
 /**
  * binary_tree_size - Measure the size of a binary tree
@@ -50,9 +50,9 @@ int binary_tree_is_heap(const binary_tree_t *tree)
  */
 size_t binary_tree_size(const binary_tree_t *tree)
 {
-    if (tree == NULL)
-        return (0);
+if (tree == NULL)
+return (0);
 
-    return (1 + binary_tree_size(tree->left) + binary_tree_size(tree->right));
+return (1 + binary_tree_size(tree->left) + binary_tree_size(tree->right));
 }
 
